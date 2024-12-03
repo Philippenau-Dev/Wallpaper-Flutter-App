@@ -14,7 +14,7 @@ class HomeController extends GetxController {
   List<WallpaperModel> get wallpapers => _wallpapers;
 
   String _moreImage = '';
-  String get moreImage => _moreImage;
+  String? get moreImage => _moreImage;
   String _baseUrl =
       'https://api.pexels.com/v1/curated/?page=1\u0026per_page=11';
   String get baseUrl => _baseUrl;
@@ -25,7 +25,7 @@ class HomeController extends GetxController {
   }
 
   Future getWallPapers(String url) async {
-    var response = await http.get(url, headers: {
+    var response = await http.get(Uri.parse(url), headers: {
       'Authorization': Constants.API_KEY,
     });
     if (response.statusCode == 200) {

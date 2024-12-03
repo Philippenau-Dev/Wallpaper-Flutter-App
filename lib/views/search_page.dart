@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:wallpaper/controller/search_controller.dart';
+import 'package:wallpaper/controller/search_controller.dart' as ctrl;
 import 'package:wallpaper/widgets/brand.dart';
 import 'package:wallpaper/widgets/search.dart';
 import 'package:wallpaper/widgets/wallpaper_grid.dart';
 
-class SearchPage extends GetView<SearchController> {
+class SearchPage extends GetView<ctrl.SearchController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,8 +22,8 @@ class SearchPage extends GetView<SearchController> {
             children: [
               Search(),
               SizedBox(height: 16),
-              GetBuilder<SearchController>(
-                init: SearchController(),
+              GetBuilder<ctrl.SearchController>(
+                init: ctrl.SearchController(),
                 builder: (_) => WallpaperGrid(
                   items: _.searchWallpapers,
                 ),

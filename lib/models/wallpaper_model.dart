@@ -1,6 +1,9 @@
 class WallpaperModel {
-  String largeUrl;
-  String mediumUrl;
+  final String largeUrl;
+  final String mediumUrl;
 
-  WallpaperModel({this.largeUrl, this.mediumUrl});
+  const WallpaperModel({
+    required this.largeUrl,
+    required this.mediumUrl,
+  });
 }

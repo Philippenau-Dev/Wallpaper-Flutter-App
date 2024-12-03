@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
 import 'package:wallpaper/routes/route.dart';
 import 'package:wallpaper/views/home_page.dart';
-import 'package:wallpaper/views/imageView.dart';
+import 'package:wallpaper/views/image_view.dart';
 import 'package:wallpaper/views/search_page.dart';
 
 abstract class AppPages {

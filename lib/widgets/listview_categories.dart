@@ -5,7 +5,7 @@ import 'categories_tile.dart';
 class ListviewCategories extends StatelessWidget {
   final List items;
 
-  ListviewCategories({@required this.items});
+  ListviewCategories({required this.items});
 
   @override
   Widget build(BuildContext context) {

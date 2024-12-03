@@ -1,6 +1,9 @@
 class CategoriesModel {
-  String categoriesName;
-  String imgUrl;
+  final String categoriesName;
+  final String imgUrl;
 
-  CategoriesModel({this.categoriesName, this.imgUrl});
+  CategoriesModel({
+    required this.categoriesName,
+    required this.imgUrl,
+  });
 }

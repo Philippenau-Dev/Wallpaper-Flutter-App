@@ -1,9 +1,6 @@
-import 'dart:ui';
-
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:get/state_manager.dart';
-import 'package:get/route_manager.dart';
+import 'package:get/get.dart';
 import 'package:wallpaper/controller/imageView_controller.dart';
 
 class ImageView extends StatelessWidget {

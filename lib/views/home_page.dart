@@ -28,19 +28,21 @@ class HomePage extends GetView<HomeController> {
                   children: [
                     ListviewCategories(items: _.categories),
                     WallpaperGrid(items: _.wallpapers),
-                    _.moreImage.isNull
+                    _.moreImage == null
                         ? SizedBox()
                         : Padding(
                             padding: const EdgeInsets.all(8.0),
-                            child: FlatButton(
+                            child: TextButton(
                               onPressed: () {
-                                _.getWallPapers(_.moreImage);
+                                _.getWallPapers(_.moreImage ?? '');
                               },
+                              style: TextButton.styleFrom(
+                                backgroundColor: Color(0xfff5fdfd),
+                              ),
                               child: Text(
                                 'More',
                                 style: TextStyle(color: Colors.blueGrey[700]),
                               ),
-                              color: Color(0xfff5fdfd),
                             ),
                           ),
                   ],

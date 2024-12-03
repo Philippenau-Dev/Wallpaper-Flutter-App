@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:wallpaper/controller/search_controller.dart';
+import 'package:wallpaper/controller/search_controller.dart' as ctrl;
 
 class Search extends StatelessWidget {
-  final _controller = Get.put(SearchController());
+  final _controller = Get.put(ctrl.SearchController());
   @override
   Widget build(BuildContext context) {
     return Container(

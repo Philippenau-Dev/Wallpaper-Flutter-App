@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:io';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
@@ -8,10 +7,10 @@ import 'package:path_provider/path_provider.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:random_string/random_string.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:wallpaper/utils/constants.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 class ImageViewController extends GetxController {
-  String _imageUrl;
+  late String _imageUrl;
   String get imageUrl => _imageUrl;
 
   var _isSaving = false.obs;
@@ -30,7 +29,7 @@ class ImageViewController extends GetxController {
     try {
       var dir = await getExternalStorageDirectory();
       var fileName = randomAlpha(5);
-      await dio.download(imgUrl, "${dir.path}/$fileName.jpg").then((value) {
+      await dio.download(imgUrl, "${dir?.path}/$fileName.jpg").then((value) {
         Get.snackbar(
           'Success',
           'Wallpaper saved',
@@ -62,20 +61,13 @@ class ImageViewController extends GetxController {
   }
 
   _askPermission() async {
-    if (Platform.isIOS) {
-      await PermissionHandler().requestPermissions([PermissionGroup.photos]);
-    } else {
-      await PermissionHandler().checkPermissionStatus(PermissionGroup.storage);
-    }
+    await Permission.photos.request();
   }
 
   launchUrl(String url) async {
-    if (await canLaunch(url)) {
-      await launch(
+    if (await canLaunchUrl(Uri.parse(url))) {
+      await launchUrlString(
         url,
-        headers: <String, String>{
-          'Authorization': Constants.API_KEY,
-        },
       );
     } else {
       throw 'Could not launch $url';

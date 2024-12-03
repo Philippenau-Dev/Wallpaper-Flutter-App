@@ -14,10 +14,11 @@ class SearchController extends GetxController {
 
   Future searchWallPapers(String value) async {
     _searchWallpapers.clear();
-    var response = await http
-        .get('https://api.pexels.com/v1/search?query=$value', headers: {
-      'Authorization': Constants.API_KEY,
-    });
+    var response = await http.get(
+        Uri.parse('https://api.pexels.com/v1/search?query=$value'),
+        headers: {
+          'Authorization': Constants.API_KEY,
+        });
     if (response.statusCode == 200) {
       Map<String, dynamic> data = jsonDecode(response.body);
       data['photos'].forEach((element) {

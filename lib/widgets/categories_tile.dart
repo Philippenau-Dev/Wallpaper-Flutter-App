@@ -2,18 +2,18 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:wallpaper/controller/search_controller.dart';
+import 'package:wallpaper/controller/search_controller.dart' as ctrl;
 
 class CategoriesTile extends StatelessWidget {
   final String imgUrl;
   final String title;
 
   CategoriesTile({
-    @required this.imgUrl,
-    @required this.title,
+    required this.imgUrl,
+    required this.title,
   });
 
-  final _controller = Get.put(SearchController());
+  final _controller = Get.put(ctrl.SearchController());
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
